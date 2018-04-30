@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sabermetrics Final Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+</head>
+
+<style>
+    body, html {
+        height: 100%;
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav class="w3-bar w3-black">
+        <ul>
+            <a href="index.html" class="w3-button w3-bar-item">Home</a>
+            <a class="w3-button w3-bar-item" style="background-color:darkgray">Explanation of Statistic</a>
+            <a href="application.html" class="w3-button w3-bar-item">Use the Tool</a>
+            <a href="analysis.html" class="w3-button w3-bar-item">Analysis</a>
+            <a href="presentation.html" class="w3-button w3-bar-item">Presentation</a>
+        </ul>
+    </nav>
+
+    <!-- Format background -->
+    <div class="w3-black w3-grayscale w3-large">
+
+        <!-- Explanation of Statistic Container -->
+        <div class="w3-container" id="explanation">
+            <div class="w3-content w3-padding-64" style="max-width:700px">
+                <h5 class="w3-center w3-padding-32"><span class="w3-tag w3-wide">EXPLANATION OF STATISTIC</span></h5>
+                <p>I am proposing a new statistic for evaluating hitters. The statistic will account for hitting and baserunning factors over which the batter has control. The purpose of this statistic is to analyze how well a player can accumulate bases on the basis of their own skill. I will be including the following factors in my equation/query: singles, doubles, triples, home runs, steals, caught stealing, and at bats. I have not included the factors base on balls and hit by pitch because those are batting factors over which the batter does not have control (or at least full control). </p>
+                <p>I will refer to this new statistic as Base Accumulation by Player Ability (or BAPA for short). My proposed equation for the statistic is as follows: 
+                <div class="w3-panel w3-leftbar w3-dark-grey">
+                    <p>BAPA=((1B + 2 × 2B + 3 × 3B + 4 × HR + SB - CS)) / (AB - 1B - 2B - 3B - HR + CS)</p>
+                    <p><i>where SB is stolen bases and CS is caught stealing</i></p>
+                </div>
+                <p>The numerator of this equation first sums all bases accumulated by hits alone (1B+2 ×2B+3 ×3B+4 ×HR), then adds successfully stolen bases, and finally subtracts caught stealing. This total should give an idea of how well a player can accumulate bases based on their batting and baserunning abilities. There exists a denominator to this equation to place all players on a more even playing field. The first part of the denominator calculates at bats where the batter did not get a hit, and then caught stealing is added to lower the BAPA for getting out on a steal attempt. Ideally, the denominator should adjust the numerator to a more normalized scale so that players can more easily be compared. </p>
+                <p>The equation above is similar to a couple of other statistics. The first statistic, total bases, is included in the above equation. Total bases is a total number representing all accumulated bases from hits. </p>
+                <div class="w3-panel w3-leftbar w3-dark-grey">
+                    <p>Total bases = 1B + 2 × 2B + 3 × 3B + 4 × HR</p>
+                </div>
+                <p>The second similar statistic is called Total Average. The equation for Total Average calculates a very similar statistic to BAPA, except that it includes factors not totally under the batter/runner’s control (base on balls, hit by pitch, and ground into double plays). </p> 
+                <div class="w3-panel w3-leftbar w3-dark-grey">
+                    <p>Total Average = [(TB + BB + HBP + SB – CS)/(AB – H + CS + GIDP)]</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-dark-grey w3-padding-48 w3-medium">
+        <p>View the code for the website and project on my <a href="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io" title="GitHub Repository" target="_blank" class="w3-hover-text-green">GitHub Repository</a>.</p>
+    </footer>
+
+</body>
+</html>
