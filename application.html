@@ -35,8 +35,11 @@
                 names = [Player];
             }
             var positions = [];
-            for (i = 1; i < data.length; i++) {
-                tmp = data[i].split(',');
+            for (i = 1; i < 2; i++) {
+                tmp = data[i];
+                alert(tmp);
+                alert(typeof tmp);
+                alert(tmp[0]);
                 found = true;
                 for (j = 0; j < names.length; j++){
                     if (tmp.indexOf(names[j]) == -1) {
