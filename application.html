@@ -37,11 +37,15 @@
             var positions = [];
             for (i = 1; i < data.length; i++) {
                 tmp = data[i];
-                found = true;
+                found = false;
                 for (j = 0; j < names.length; j++){
-                    if (tmp.indexOf(names[j]) == -1) {
-                        found = false;
+                    if (tmp.indexOf(names[j]) >= 0) {
+                        continue;
                     }
+                    else {
+                        break;
+                    }
+                    found = true;
                 }
                 if (found == true) {
                     positions += i;
