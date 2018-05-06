@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js"></script>
 
     <script type="text/javascript">
-        var DB = new Array();
         function MakeDB() {
             $(document).ready(function () {
                 $.ajax({
@@ -36,8 +35,8 @@
                 names = [Player];
             }
             var positions = [];
-            for (i = 0; i < DB.length; i++) {
-                tmp = DB[i];
+            for (i = 0; i < data.length; i++) {
+                tmp = data[i];
                 found = true;
                 for (j = 0; j < names.length; j++){
                     if (tmp.indexOf(names[j]) == -1) {
@@ -58,7 +57,7 @@
                 tableInfo = "<table>\n<tr>\n<th>First Name</th>\n<th>Last Name</th>\n<th>Lahman playerID</th>\n<th>Year</th>\n<th>Lahman Team ID</th>\n<th>Lahman League ID</th>\n<th>Hits</th>\n<th>Singles</th>\n<th>Doubles</th>\n<th>Triples</th>\n<th>Home Runs</th>\n<th>Walks</th>\n<th>Hit By Pitch</th>\n<th>Stolen Bases</th>\n<th>Caught Stealing</th>\n<th>At Bats</th>\n<th>Batting Average</th>\n<th>On Base Percentage</th>\n<th>Slugging Percentage</th>\n<th>BAPA</th>\n<th>Linear Weights</th>\n";
                 tableInfo += "</tr>\n<tr>\n";
                 for (x = 0; x < positions.length; x++) {
-                    row = DB[positions[x]];
+                    row = data[positions[x]];
                     for (y = 0; y < row.length; y++) {
                         tableInfo += "<td>";
                         tableInfo += row[y];
