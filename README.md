@@ -18,11 +18,12 @@ For the final project in this course, I am proposing a new statistic for evaluat
 I have named my new statistic Base Accumulation by Player Ability (or BAPA for short). The equation I have developed is as follows:
 BAPA=((1B+2 ×2B+3 ×3B+4 ×HR+SB-CS))/(AB- 1B-2B-3B-HR+CS)
 where SB is stolen bases and CS is caught stealing. The numerator of this equation first sums all bases accumulated by hits alone (1B+2 ×2B+3 ×3B+4 ×HR), then adds successfully stolen bases, and finally subtracts caught stealing. This total should give an idea of how well a player can accumulate bases based on their batting and baserunning abilities. There exists a denominator to this equation to place all players on a more even playing field. The first part of the denominator calculates at-bats where the batter did not get a hit, and then caught stealing is added to lower the BAPA for getting out on a steal attempt. Ideally, the denominator should adjust the numerator to a more normalized scale so that players can more easily be compared.
+
 The equation above is similar to a couple of other statistics. The first statistic, total bases, is included in the above equation. Total bases is a total number representing all accumulated bases from hits. Total bases = 1B+2 ×2B+3 ×3B+4 ×HR. The second similar statistic is called Total Average. The equation for Total Average calculates a very similar statistic to BAPA, except that it includes factors not totally under the batter/runner’s control (base on balls, hit by pitch, and ground into double plays). Total Average = [(TB + BB + HBP + SB – CS)/(AB – H + CS + GIDP)].
 
 **Evaluation of Statistic**
 
-I have evaluated my statistic by comparing it to other common baseball statistics. I created a Jupyter Notebook to perform the statistical analyses. The notebook can be found under the code folder of this project’s GitHub repository. An HTML version of the file can also be found in the repository under the data folder. For all of the following regression analyses, I split the data 80% for the training set and 20% for the test set.
+I have evaluated my statistic by comparing it to other common baseball statistics. I created a Jupyter Notebook to perform the statistical analyses. The notebook can be found under the [code](/code) folder of this project’s GitHub repository. An HTML version of the file can also be found in the repository under the [data](/data) folder. For all of the following regression analyses, I split the data 80% for the training set and 20% for the test set.
 
 The first statistic to which I made comparisons is on-base percentage (OBP). Linear regression analysis yielded an equation of 
 On-Base Percentage = 0.367 * BAPA + 0.0946
