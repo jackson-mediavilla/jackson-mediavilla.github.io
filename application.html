@@ -28,17 +28,22 @@
         }
 
         function PlayerSearch(Player) {
+            alert(Player);
             if (Player.indexOf(" ") != -1) {
                 names = Player.split(' ');
             }
             else {
                 names = [Player];
             }
+            alert(names);
             var positions = [];
-            for (i = 1; i < data.length; i++) {
+            for (i = 0; i < 1; i++) {
                 tmp = data[i];
+                alert(tmp);
                 found = true;
                 for (j = 0; j < names.length; j++){
+                    alert(names[j]);
+                    alert(tmp.indexOf(names[j]));
                     if (tmp.indexOf(names[j]) == -1) {
                         found = false;
                     }
