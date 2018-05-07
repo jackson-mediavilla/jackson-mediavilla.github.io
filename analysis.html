@@ -27,13 +27,77 @@
     </nav>
 
     <!-- Format background -->
-    <div class="w3-light-gray w3-grayscale w3-large" style="height: 100%">
+    <div class="w3-light-gray w3-grayscale w3-large">
 
         <!-- Analysis Container -->
         <div class="w3-container" id="analysis">
-            <div class="w3-content w3-padding-64" style="max-width:700px">
+            <div class="w3-content" style="max-width:700px">
                 <h5 class="w3-center w3-padding-32"><span class="w3-tag w3-wide">ANALYSIS</span></h5>
-                <p><i>Coming soon...</i></p>
+                <p>I have evaluated my statistic by comparing it to other common baseball statistics. I created a Jupyter Notebook to perform the statistical analyses. The notebook can be found under the <i>code</i> folder of this project’s GitHub repository. An HTML version of the file can also be found in the repository under the <i>data</i>i> folder. For all of the following regression analyses, I split the data 80% for the training set and 20% for the test set.</p>
+                <p>The first statistic to which I made comparisons is on-base percentage (OBP). Linear regression analysis yielded an equation of </p>
+                <div class="w3-panel w3-leftbar w3-dark-grey"> 
+                    <p>On-Base Percentage = 0.367 * BAPA + 0.0946</p>
+                    <p><i>with a mean squared error of 0.01 and a variance score of 0.72</i></p>
+                </div>  
+                <p>The low mean squared error of 0.01 shows that BAPA is very highly correlated to on-base percentage.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 1</span></h5>
+                <p>Fitted Linear Regression Comparing BAPA and OBP</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/BAPA%20vs%20OBP.png?raw=true" alt="Fitted Linear Regression Comparing BAPA and OBP">
+                <p>Figure 1 depicts the relationship between BAPA and on-base percentage. The visual representation shows a clear, positive relationship between the two variables.</p>
+                <p>I also performed linear regression analysis between BAPA and batting average (BA). This yielded an equation of</p>
+                <div class="w3-panel w3-leftbar w3-dark-grey"> 
+                    <p>Batting Average = 0.313 * BAPA + 0.0784</p>
+                    <p><i>with a mean squared error of 0.00 and a variance score of 0.74</i></p>
+                </div>
+                <p>The extremely low mean squared error shows a very high correlation between BAPA and batting average.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 2</span></h5>
+                <p>Fitted Linear Regression Comparing BAPA and BA</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/BAPA%20vs%20BA.png?raw=true" alt="Fitted Linear Regression Comparing BAPA and BA">
+                <p>Figure 2 depicts the relationship between BAPA and batting average. While the mean squared error rounds to 0.00, the graph shows the existence of outliers in the relationship. These outliers become more apparent in my later analyses.</p>
+                <p>Another relationship I examined with linear regression analysis was BAPA vs slugging percentage (SLG). The resulting equation is as follows</p>
+                <div class="w3-panel w3-leftbar w3-dark-grey"> 
+                    <p>Slugging Percentage = 0.594 * BAPA + 0.0556</p>
+                    <p><i>with a mean squared error of 0.00 and a variance score of 0.95</i></p>
+                </div> 
+                <p>The extremely low mean squared error shows a very high correlation between BAPA and slugging percentage.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 3</span></h5>
+                <p>Fitted Linear Regression Comparing BAPA and SLG</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/BAPA%20vs%20SLG.png?raw=true" alt="Fitted Linear Regression Comparing BAPA and SLG">
+                <p>Figure 3 shows the relationship between BAPA and SLG. Of the linear regression graphs generated, this one shows the strongest relationship. This is probably because the very high outlier BAPA value was dropped. The value was dropped because in all of these regression calculations, all rows were dropped that did not contain both the BAPA statistic and the dependent variable.</p>
+                <p>The last regression analysis I performed was between BAPA and the Linear Weights (LWTS) formula developed by Pete Palmer.</p>
+                <div class="w3-panel w3-leftbar w3-dark-grey"> 
+                    <p>LWTS = .46*1B + .80*2B + 1.02*3B + 1.40*HR + .33*(BB + HBP) + .30*SB – .60*CS – .25*(AB – H)</p>
+                </div>
+                <p>The regression equation is as follows</p>
+                <div class="w3-panel w3-leftbar w3-dark-grey"> 
+                    <p>LWTS = 19.2 * BAPA + -6.01</p>
+                    <p><i>LWTS = 19.2 * BAPA + -6.01
+                        with a mean squared error of 141.97 and a variance score of 0.20</i></p>
+                </div>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 4</span></h5>
+                <p>Fitted Linear Regression Comparing BAPA and LWTS</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/BAPA%20vs%20LWTS.png?raw=true" alt="Fitted Linear Regression Comparing BAPA and LWTS">
+                <p>Figure 4 and the regression equation show a very weak relationship between BAPA and the linear weights statistic.</p>
+                <h5 class="w3-center w3-padding-32"><span class="w3-tag w3-wide">Conclusions</span></h5>
+                <p>Based on the analysis above, I believe BAPA has potential for evaluating baseball players’ offensive skills, but it does not provide a great overall picture of players. This is evident in the fact that Base Accumulation by Player Ability is highly correlated to on-base percentage, batting average, and slugging percentage, but is not highly correlated to LWTS. The linear weights formula is intended to give an overall score to players to analyze their ability to contribute runs. This is very similar to what I intended to evaluate with my statistic. Perhaps BAPA could be a much more effective statistic by weighting events in the same manner as the linear weights formula.</p>
+                <p>More problems with the statistic become evident when looking at the top ranked players under BAPA’s evaluation.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-wide w3-text-black">FIGURE 5</span></h5>
+                <p>Top Ranked Players by BAPA</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/Top%20Players.PNG?raw=true" alt="Top Players by BAPA">
+                <p>Figure 5 shows the top ranked players in the Lahman database by their BAPA score. It is evident that BAPA needs modification because all of these players have very few at-bats and very low LWTS.</p>
+                <p>If the query is changed to only include players with more than 300 at-bats, BAPA produces a much more accurate list of top players.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 6</span></h5>
+                <p>Top Ranked Players by BAPA (AB-Adjusted)</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/Top%20Players%20(Adjusted).PNG?raw=true" alt="Top Players by BAPA (AB-Adjusted)">
+                <p>Figure 6 shows a more realistic list of the top 10 players from the Lahman Database.</p>
+                <p>The higher accuracy of Figure 6 can be seen in comparison to the top players by LWTS.</p>
+                <h5 class="w3-center w3-padding-16"><span class="w3-text-black w3-wide">FIGURE 7</span></h5>
+                <p>Top Ranked Players by LWTS</p>
+                <img src="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/images/Top%20Players%20LWTS.PNG?raw=true" alt="Top Players by LWTS">
+                <p>Comparing the list of players in Figure 7 to the list of players in Figure 6 shows a much higher correlation than comparing Figures 5 and 7.</p>
+                <p>In conclusion, I believe BAPA is an okay evaluation of baseball offensive skill. With some modifications (such as weights), BAPA could be developed into a more accurate representation of players’ ability to accumulate bases on their own skill.</p>
+                <h5 class="w3-center w3-padding-32"><span class="w3-tag w3-wide">Analysis File</span></h5>
+                <p>The Jupyter Notebook used to evaluate BAPA can be viewed <a href="https://github.com/jackson-mediavilla/jackson-mediavilla.github.io/blob/master/code/Analysis.ipynb" title="Jupyter Notebook" target="_blank" class="w3-hover-text-green">here</a>.</p>
             </div>
         </div>
 
