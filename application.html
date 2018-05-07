@@ -35,7 +35,6 @@
                 names = [Player];
             }
             var positions = [];
-            alert(data.length);
             for (i = 0; i < data.length; i++) {
                 tmp = data[i];
                 found = true;
@@ -45,10 +44,9 @@
                     }
                 }
                 if (found == true) {
-                    positions += i;
+                    positions.push(i);
                 }
             }
-            alert(positions);
             if (positions.length == 0) {
                 document.getElementById('Results').style.display = "none";
                 alert('Cannot locate player.');
